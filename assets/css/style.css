@@ -2,3 +2,66 @@
     font-family: 'Silkscreen', cursive;
 }
 
+/**/
+body {
+background-color: #4faf44;
+}
+
+#title {
+color: #2a3492;
+text-shadow: 2px 2px #2a349275;
+font-size: 45px;
+text-align: center;
+}
+
+/**/
+#player {
+color: #151a49;
+text-shadow: 2px 2px #15144986;
+text-align: center;
+font-size: 20px;
+margin-top: 2%;
+margin-bottom: 3%;
+}
+
+#grid {
+margin: 0 auto;
+display: grid;
+grid-template-rows: 33% 33% 33%;
+grid-template-columns: 33% 33% 33%;
+max-width: 400px;
+}
+
+#cel {
+border: 2px solid #7B760A;
+min-width: 100px;
+max-width: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 50px;
+cursor: pointer;
+}
+
+
+#grid > #cel {
+    background-color: azure;
+}
+
+#display {
+justify-content: center;
+}
+
+#display {
+color: blue;
+text-align: center;
+}
+
+#reset {
+text-align: center;
+color: #151a49;
+}
+
+#resoult{
+color: #151a49;
+}
