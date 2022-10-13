@@ -40,8 +40,42 @@ addEventListener('DOMContentLoaded', () => {
         roundWon = false;
         for (let i = 0; i <=7; i++) {
             const winCondition = winningConditions[i];
-            const firstHypothesis = board[]
+            const fHypothesis = board[winCondition[0]];
+            const sHypothesis = board[winCondition[1]];
+            const tHypothesis = board[winCondition[2]];
+            if (fHypothesis === '' || sHypothesis === '' || tHypothesis === '') {
+                continue; 
+            }
+            if (a === b && b === c) {
+                roundWon = true;
+                break;
+            }
+        }
+        if (roundWon) {
+            resoult(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
+            isGameActive = false; 
+            return;
+        }
+
+        if(!board.includes(''))
+        resoult(TIE);
+    }
+
+    const annonce = (type) => {
+        switch(type) {
+            case PLAYERO_WON:
+            resoult.innerHTML = 'player '
         }
     }
+
+
+
+
+
+
+
+
+
+    
 });
 
