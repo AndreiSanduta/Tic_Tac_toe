@@ -36,5 +36,12 @@ addEventListener('DOMContentLoaded', () => {
         [2, 4, 6],
     ];
 
+    function resoultValidation() {
+        roundWon = false;
+        for (let i = 0; i <=7; i++) {
+            const winCondition = winningConditions[i];
+            const firstHypothesis = board[]
+        }
+    }
 });
 
