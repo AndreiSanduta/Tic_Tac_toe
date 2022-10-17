@@ -68,12 +68,58 @@ addEventListener('DOMContentLoaded', () => {
             break;
             case PLAYERX_WON:
             resoult.innerHTML = 'player <div id="playerX">X</div> Won';
-            break;  
+            break;   
             case TIE: 
-            resoult.innerHTML = `It's a Tie!`
+            resoult.innerHTML = `It's a Tie!`;
         };
 
-        
+        const updateBoard = (index) => {
+            board[index] = player;
+        }
+
+        const changePlayer = () => {
+            display.classList.remove(`player${player}`);
+            player = player === 'X' ? '0' : 'X';
+            display.innerText = player;
+            display.classList.add(`player${palyer}`);
+        }
+
+        const userAction = (cel,index) => {
+            if(isValidAction(cel) && isGameActive) {
+                cel.innerText = player;
+                cel.classList.add(`player${player}`);
+                updateBoard(index);
+                handleResoultValidation();
+                changePlayer();
+            }
+        }
+
+        const reset = () => {
+            board = ['', '', '', '', '', '', ''];
+            isGameActive = true;
+            annonce.classList.add('hide');
+
+            if (currentPlayer === '0') {
+                changePlayer ();
+            }
+
+            cel.forEach(cel => {
+                cel.innerText = '';
+                cel.classList.remove('playerX');
+                cel.classList.remove('playerO');
+            });
+
+            cel.forEach( (cel, index) => {
+                cel.addEventListener('click', () => userAction(cel, index));
+            });
+
+            reset.addEventListener('click', resetBoard);
+            }
+        }
+
+
+
+
     }
 
 
@@ -85,5 +131,5 @@ addEventListener('DOMContentLoaded', () => {
 
 
     
-});
+);
 
