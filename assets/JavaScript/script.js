@@ -64,8 +64,16 @@ addEventListener('DOMContentLoaded', () => {
     const annonce = (type) => {
         switch(type) {
             case PLAYERO_WON:
-            resoult.innerHTML = 'player '
-        }
+            resoult.innerHTML = 'player <div class="player0">0</div> Won';
+            break;
+            case PLAYERX_WON:
+            resoult.innerHTML = 'player <div id="playerX">X</div> Won';
+            break;  
+            case TIE: 
+            resoult.innerHTML = `It's a Tie!`
+        };
+
+        
     }
 
 
