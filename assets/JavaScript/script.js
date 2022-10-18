@@ -2,7 +2,7 @@
 // Get the button elements add event listners to them 
 
 addEventListener('DOMContentLoaded', () => {
-    const cel = Array.from(document.getElementById('cel'));
+    const cel = Array.from(document.querySelector('.cel'));
     const player =document.getElementById('player');
     const reset = document.querySelector('#reset');
     const resoult = document.getElementById('resoult');

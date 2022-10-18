@@ -1,5 +1,5 @@
-* {
-    font-family: 'Silkscreen', cursive;
+*{
+font-family: 'Silkscreen', cursive;
 }
 
 /**/
@@ -25,17 +25,18 @@ margin-bottom: 3%;
 }
 
 #grid {
+box-shadow: 10px 10px rgba(244, 106, 0, 0.338);
 margin: 0 auto;
 display: grid;
-grid-template-rows: 33% 33% 33%;
 grid-template-columns: 33% 33% 33%;
-max-width: 400px;
+grid-template-rows: 33% 33% 33%;
+max-width: 300px;
 }
 
-#cel {
-border: 2px solid #7B760A;
+.cel {
+border: 1px solid #7B760A;
 min-width: 100px;
-max-width: 100px;
+min-height: 100px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -44,8 +45,8 @@ cursor: pointer;
 }
 
 
-#grid > #cel {
-    background-color: azure;
+#grid > .cel {
+    background-color: rgb(244, 106, 0);
 }
 
 #display {
