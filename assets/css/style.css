@@ -2,7 +2,7 @@
 font-family: 'Silkscreen', cursive;
 }
 
-/**/
+/*Retro colors to be used*/
 body {
 background-color: #4faf44;
 }
@@ -14,7 +14,8 @@ font-size: 45px;
 text-align: center;
 }
 
-/**/
+/*This section will show both players and it will be destinguished by color,
+white for the simbol "0" and for the symbol "X" will be black*/
 .display {
 color: #151a49;
 text-shadow: 2px 2px #15144986;
@@ -25,7 +26,7 @@ margin-bottom: 3%;
 }
 
 .table {
-box-shadow: 10px 10px rgba(244, 106, 0, 0.338);
+box-shadow: 10px 5px rgba(244, 106, 0, 0.242);
 margin: 0 auto;
 display: grid;
 grid-template-columns: 33% 33% 33%;
@@ -46,19 +47,19 @@ cursor: pointer;
 
 
 .table > .cel {
-    background-color: rgb(244, 106, 0);
+    background-color: rgba(244, 106, 0, 0.691);
 }
 
 .playerX {
-    color: black;
+    color: rgb(5, 0, 0);
 }
 
 .playerO {
-    color: white;
+    color: rgb(231, 228, 228);
 }
 
 .display announcer hide {
-color: blue;
+color: rgb(108, 108, 208);
 text-align: center;
 }
 
