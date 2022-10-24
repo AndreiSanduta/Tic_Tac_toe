@@ -7,7 +7,7 @@ body {
 background-color: #4faf44;
 }
 
-#title {
+.title {
 color: #2a3492;
 text-shadow: 2px 2px #2a349275;
 font-size: 45px;
@@ -15,7 +15,7 @@ text-align: center;
 }
 
 /**/
-#player {
+.display {
 color: #151a49;
 text-shadow: 2px 2px #15144986;
 text-align: center;
@@ -24,7 +24,7 @@ margin-top: 2%;
 margin-bottom: 3%;
 }
 
-#grid {
+.table {
 box-shadow: 10px 10px rgba(244, 106, 0, 0.338);
 margin: 0 auto;
 display: grid;
@@ -34,7 +34,7 @@ max-width: 300px;
 }
 
 .cel {
-border: 1px solid #7B760A;
+border: 5px solid #2b2d41;
 min-width: 100px;
 min-height: 100px;
 display: flex;
@@ -45,24 +45,39 @@ cursor: pointer;
 }
 
 
-#grid > .cel {
+.table > .cel {
     background-color: rgb(244, 106, 0);
 }
 
-#display {
-justify-content: center;
+.playerX {
+    color: black;
 }
 
-#display {
+.playerO {
+    color: white;
+}
+
+.display announcer hide {
 color: blue;
 text-align: center;
 }
 
-#reset {
-text-align: center;
-color: #151a49;
+.controls {
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+margin-top: 5rem;
+cursor: pointer;
 }
 
+.controls button {
+    color: black;
+    box-shadow: 5px 5px;
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+}
 #resoult{
 color: #151a49;
 }

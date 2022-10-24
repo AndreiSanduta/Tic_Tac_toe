@@ -8,38 +8,36 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
         </style>
-    <title>TIC TAC TOE</title>
+    <title>Tic-Tac-Toe 2 players</title>
 </head>
 <body>
-    <h1 id="title">TIC TAC TOE</h1>
-    <!--In this section it will bw shown who has the turn in the game-->
-    <section id="player">
-        <h2>PlayerX</h2>
-    </section>
-    <!--The section below represents the game area.-->
-    <section id="grid">
-        <div class="cel"></div>
-        <div class="cel"></div>
-        <div class="cel"></div>
-        <div class="cel"></div>
-        <div class="cel"></div>
-        <div class="cel"></div>
-        <div class="cel"></div>
-        <div class="cel"></div>
-        <div class="cel"></div>
-    </section>
-    <!--This section show the game result-->
-    <section id="display">
-        <h2>Player() Win!</h2>
-    </section>
-    <section id="reset">
-    <button>RESET</button>
-    </section>
-    <!--This section it will count the resoult-->
-    <section id="resoult"></section>
-
+    <main class="background">
+        <section class="title">
+            <h1>Tic Tac Toe 2 players</h1>
+        </section>
+        <!--Represents player's turn on the game-->
+        <section class="display">
+            Player <span class="display-player playerX">X</span>'s turn
+        </section>
+        <!--This section represents the main game area-->
+        <sectison class="table">
+            <div class="cel"></div>
+            <div class="cel"></div>
+            <div class="cel"></div>
+            <div class="cel"></div>
+            <div class="cel"></div>
+            <div class="cel"></div>
+            <div class="cel"></div>
+            <div class="cel"></div>
+            <div class="cel"></div>
+        </section>
+        <!--Represents the resoult of the game-->
+        <section class="display announcer hide"></section>
+        <section class="controls">
+            <!--when presed this button will reset the game area and alowd the players to start a new game-->
+            <button id="reset">Reset</button>
+        </section>
+    </main>
     <script src="assets/JavaScript/script.js"></script>
-    <!--The footer area contains important links and informations-->
-    <footer></footer>
 </body>
 </html>

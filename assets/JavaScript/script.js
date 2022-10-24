@@ -1,30 +1,25 @@
-// Wait for the DOM to finish loading before running the game 
-// Get the button elements add event listners to them 
+window.addEventListener('DOMContentLoaded', () => {
+    const cels = Array.from(document.querySelectorAll('.cel'));
+    const playerDisplay = document.querySelector('.display-player');
+    const resetButton = document.querySelector('#reset');
+    const announcer = document.querySelector('.announcer');
 
-addEventListener('DOMContentLoaded', () => {
-    const cel = Array.from(document.querySelector('.cel'));
-    const player =document.getElementById('player');
-    const reset = document.querySelector('#reset');
-    const resoult = document.getElementById('resoult');
+    let board = ['', '', '', '', '', '', '', '', ''];
+    let currentPlayer = 'X';
+    let isGameActive = true;
 
-    var gameArea = ['', '', '', '', '', '', '', '', '',];
-    var currentPlayer = 'X';
-    var isGameActive = true;
+    const PLAYERX_WON = 'PLAYERX_WON';
+    const PLAYERO_WON = 'PLAYERO_WON';
+    const TIE = 'TIE';
 
-    /*This constants represents the messages that will pop up when the game finis and 
-    it will show the final resoult of the game. */
-
-    const PLAYER_WON = 'PLAYERX_WON';
-    const PLAYERO_WON = 'PLAYER0_WON';
-    const tie ='TIE'
 
     /*
-        Game area is represented in this way 
+        Indexes within the board
         [0] [1] [2]
         [3] [4] [5]
         [6] [7] [8]
     */
-    
+
     const winningConditions = [
         [0, 1, 2],
         [3, 4, 5],
@@ -32,104 +27,98 @@ addEventListener('DOMContentLoaded', () => {
         [0, 3, 6],
         [1, 4, 7],
         [2, 5, 8],
-        [0, 3, 8],
+        [0, 4, 8],
         [2, 4, 6],
     ];
 
-    function resoultValidation() {
-        roundWon = false;
-        for (let i = 0; i <=7; i++) {
+    function handleResultValidation() {
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++) {
             const winCondition = winningConditions[i];
-            const fHypothesis = board[winCondition[0]];
-            const sHypothesis = board[winCondition[1]];
-            const tHypothesis = board[winCondition[2]];
-            if (fHypothesis === '' || sHypothesis === '' || tHypothesis === '') {
-                continue; 
+            const a = board[winCondition[0]];
+            const b = board[winCondition[1]];
+            const c = board[winCondition[2]];
+            if (a === '' || b === '' || c === '') {
+                continue;
             }
             if (a === b && b === c) {
                 roundWon = true;
                 break;
             }
         }
-        if (roundWon) {
-            resoult(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
-            isGameActive = false; 
+
+    if (roundWon) {
+            announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
+            isGameActive = false;
             return;
         }
 
-        if(!board.includes(''))
-        resoult(TIE);
+    if (!board.includes(''))
+        announce(TIE);
     }
 
-    const annonce = (type) => {
-        switch(type) {
+    const announce = (type) => {
+        switch(type){
             case PLAYERO_WON:
-            resoult.innerHTML = 'player <div class="player0">0</div> Won';
-            break;
+                announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
+                break;
             case PLAYERX_WON:
-            resoult.innerHTML = 'player <div id="playerX">X</div> Won';
-            break;   
-            case TIE: 
-            resoult.innerHTML = `It's a Tie!`;
-        };
+                announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+                break;
+            case TIE:
+                announcer.innerText = 'Tie';
+        }
+        announcer.classList.remove('hide');
+    };
 
-        const updateBoard = (index) => {
-            board[index] = player;
+    const isValidAction = (cel) => {
+        if (cel.innerText === 'X' || cel.innerText === 'O'){
+            return false;
         }
 
-        const changePlayer = () => {
-            display.classList.remove(`player${player}`);
-            player = player === 'X' ? '0' : 'X';
-            display.innerText = player;
-            display.classList.add(`player${palyer}`);
-        }
+        return true;
+    };
 
-        const userAction = (cel,index) => {
-            if(isValidAction(cel) && isGameActive) {
-                cel.innerText = player;
-                cel.classList.add(`player${player}`);
-                updateBoard(index);
-                handleResoultValidation();
-                changePlayer();
-            }
-        }
-
-        const reset = () => {
-            board = ['', '', '', '', '', '', ''];
-            isGameActive = true;
-            annonce.classList.add('hide');
-
-            if (currentPlayer === '0') {
-                changePlayer ();
-            }
-
-            cel.forEach(cel => {
-                cel.innerText = '';
-                cel.classList.remove('playerX');
-                cel.classList.remove('playerO');
-            });
-
-            cel.forEach( (cel, index) => {
-                cel.addEventListener('click', () => userAction(cel, index));
-            });
-
-            reset.addEventListener('click', resetBoard);
-            }
-        }
-
-
-
-
+    const updateBoard =  (index) => {
+        board[index] = currentPlayer;
     }
 
+    const changePlayer = () => {
+        playerDisplay.classList.remove(`player${currentPlayer}`);
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        playerDisplay.innerText = currentPlayer;
+        playerDisplay.classList.add(`player${currentPlayer}`);
+    }
 
-
-
-
-
-
-
-
+    const userAction = (cel, index) => {
+        if(isValidAction(cel) && isGameActive) {
+            cel.innerText = currentPlayer;
+            cel.classList.add(`player${currentPlayer}`);
+            updateBoard(index);
+            handleResultValidation();
+            changePlayer();
+        }
+    }
     
-);
+    const resetBoard = () => {
+        board = ['', '', '', '', '', '', '', '', ''];
+        isGameActive = true;
+        announcer.classList.add('hide');
 
+        if (currentPlayer === 'O') {
+            changePlayer();
+        }
+
+        cels.forEach(cel => {
+            cel.innerText = '';
+            cel.classList.remove('playerX');
+            cel.classList.remove('playerO');
+        });
+    }
+
+    cels.forEach( (cel, index) => {
+        cel.addEventListener('click', () => userAction(cel, index));
+    });
+
+    resetButton.addEventListener('click', resetBoard);
+});
