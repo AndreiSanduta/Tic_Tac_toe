@@ -3,6 +3,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const playerDisplay = document.querySelector('.display-player');
     const resetButton = document.querySelector('#reset');
     const announcer = document.querySelector('.announcer');
+    const winGame = new Audio('assets/sound/win.mp3')
+    const pieceMove = new Audio('assets/sound/piece.mp3')
+
 
     let board = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X';
@@ -45,6 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 roundWon = true;
                 break;
             }
+            
         }
 
     if (roundWon) {
@@ -55,6 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (!board.includes(''))
         announce(TIE);
+        pieceMove.play();
     }
 
     const announce = (type) => {
@@ -75,13 +80,14 @@ window.addEventListener('DOMContentLoaded', () => {
         if (cel.innerText === 'X' || cel.innerText === 'O'){
             return false;
         }
-
         return true;
     };
 
     const updateBoard =  (index) => {
         board[index] = currentPlayer;
     }
+
+
 
     const changePlayer = () => {
         playerDisplay.classList.remove(`player${currentPlayer}`);
