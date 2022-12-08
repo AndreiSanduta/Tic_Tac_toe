@@ -22,23 +22,21 @@
             Player <span class="display-player playerX">X</span>'s turn
         </section>
 
-        <button data-modal-target="#modal">How to play</button>
+        <button data-modal-target="#modal">Instructions</button>
         <div class="modal" id="modal">
-        <div class="modal-header"></div>
-        <div class="title">Exemple Modal</div>
-        <button data-close-button class="close-button">&times;</button>
+          <div class="modal-header">
+            <div class="title">How to play Tic Tac Toe</div>
+            <button data-close-button class="close-button">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p> Game is played on a grid that's 3 squares by 3 squares.
+            You are X, your friend  is O. </p>
+            <p>Players take turns putting their marks in empty squares.</p>
+            The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
+            When all 9 squares are full, the game is over.
+          </div>
         </div>
-        <div>
-        <div class="modal-bady">
-            The game is played on a grid that's 3 squares by 3 squares. <br>
-            You are X, your friend (or the computer in this case) is O. <br> 
-            Players take turns putting their marks in empty squares. <br>
-            The first player to get 3 of her marks in a row <br>
-            (up, down, across, or diagonally) is the winner. <br>
-            When all 9 squares are full, the game is over. <br>
-        </div>
-    </div>
-    <div id="ovrlay"></div>
+        <div id="overlay"></div>
      
             <!--This section represents the main game area-->
             <section class="table">

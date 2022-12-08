@@ -7,7 +7,12 @@ body {
 background-color: #4faf44;
 }
 
-.modal  {
+button {
+    margin-left:40%;
+    margin-bottom: 5%;
+  }
+
+.modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -19,31 +24,38 @@ background-color: #4faf44;
     background-color: white;
     width: 500px;
     max-width: 80%;
-}
-
-.modal.active {
+  }
+  
+  .modal.active {
     transform: translate(-50%, -50%) scale(1);
-}
-
-.modal-header .title {
+  }
+  
+  .modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modal-header .title {
     font-size: 1.25rem;
     font-weight: bold;
-}
-
-.modal-header .close-button {
+  }
+  
+  .modal-header .close-button {
     cursor: pointer;
     border: none;
     outline: none;
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
-}
-
-.modal-body {
+  }
+  
+  .modal-body {
     padding: 10px 15px;
-}
-
-#overlay {
+  }
+  
+  #overlay {
     position: fixed;
     opacity: 0;
     transition: 200ms ease-in-out;
@@ -51,14 +63,14 @@ background-color: #4faf44;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: wheat;
+    background-color: rgba(0, 0, 0, .5);
     pointer-events: none;
-}
-
-#overlay.active {
+  }
+  
+  #overlay.active {
     opacity: 1;
     pointer-events: all;
-}
+  }
 
 
 .title {
@@ -121,7 +133,6 @@ text-align: center;
 }
 
 .controls {
-display: flex;
 flex-direction: row;
 justify-content: center;
 align-items: center;
