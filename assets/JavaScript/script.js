@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const PLAYERO_WON = 'PLAYERO_WON';
     const TIE = 'TIE';
 
-   
+
 
     /*
         Indexes within the board
@@ -52,13 +52,12 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         
     if (roundWon) {
-            
             announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
             winGame.play();
             isGameActive = false;
             return;
         }
-
+    
     if (!board.includes(''))
         announce(TIE);
         pieceMove.play();
@@ -79,7 +78,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const isValidAction = (cel) => {
-        if (cel.innerText === 'X' || cel.innerText === 'O'){
+        if (cel.innerText === 'x' || cel.innerText === 'O'){
             return false;
         }
         return true;

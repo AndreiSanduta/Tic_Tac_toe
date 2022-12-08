@@ -7,6 +7,7 @@ body {
 background-color: #4faf44;
 }
 
+
 .title {
 color: #2a3492;
 text-shadow: 2px 2px #2a349275;
@@ -53,10 +54,12 @@ cursor: pointer;
 
 .playerX {
     color: rgb(5, 0, 0);
+    text-shadow: 2px 2px #2a349275;
 }
 
 .playerO {
     color: rgb(231, 228, 228);
+    text-shadow: 2px 2px #2a349275;
 }
 
 .display announcer hide {
