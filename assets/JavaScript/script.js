@@ -34,6 +34,8 @@ window.addEventListener('DOMContentLoaded', () => {
         [0, 4, 8],
         [2, 4, 6],
     ];
+    
+    // Validade the resoults of the game and anounce the winner 
 
     function handleResultValidation() {
         let roundWon = false;
@@ -124,7 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
             cel.classList.remove('playerO');
         });
     }
-
+// reset buton, returns the board to the inicial position of the game.
 
     cels.forEach( (cel, index) => {
         cel.addEventListener('click', () => userAction(cel, index));
@@ -143,6 +145,8 @@ window.addEventListener('DOMContentLoaded', () => {
       })
     })
     
+    // modal window for the instructions of the game
+
     overlay.addEventListener('click', () => {
       const modals = document.querySelectorAll('.modal.active')
       modals.forEach(modal => {
